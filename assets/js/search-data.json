@@ -1,0 +1,218 @@
+{"0": {
+    "doc": "About",
+    "title": "Keyboard Quantizer B/B2",
+    "content": ". Keyboard Quantizer B/B2 はUSBキーボードのキー入力を別のキー入力に変換し有線または無線で送信できるデバイスです。 . PCのソフトウェアに依存しないので、どの環境でも自分が設定したキー配列で入力できます。 どのPCでもCAPS LOCKをCtrlキーとして使えるようにしたり、お気に入りの配列で入力できるようになります。 もちろん単にUSBキーボードを無線キーボードにするアダプタとしても使えます。 . 自作キーボードの定番であるQMK Firmwareを利用しており、キーボードの論理配列の柔軟な変更、レイヤーやマクロの追加といった機能に対応しています。 . キーボードだけでなくマウスやトラックボールの入力を変換することもできます。 . ビルドガイド . ",
+    "url": "https://sekigon-gonnoc.github.io/Keyboard-Quantizer-B-Build-Guide/#keyboard-quantizer-bb2",
+    "relUrl": "/#keyboard-quantizer-bb2"
+  },"1": {
+    "doc": "About",
+    "title": "購入リンク",
+    "content": "BOOTH 遊舎工房 . ",
+    "url": "https://sekigon-gonnoc.github.io/Keyboard-Quantizer-B-Build-Guide/#%E8%B3%BC%E5%85%A5%E3%83%AA%E3%83%B3%E3%82%AF",
+    "relUrl": "/#購入リンク"
+  },"2": {
+    "doc": "About",
+    "title": "特徴",
+    "content": ". | USBキーボード/マウスの入力の解析, 変換 | 有線/無線での送信 . | 8台までペアリング可能 | . | Remapを使った論理配列の書き換え | 低消費電力 . | 本体単体の消費電流：約 8mA | 全体の消費電流は接続するデバイスとオートパワーオフ防止機能の設定によって変動します | . | モバイルバッテリーのオートパワーオフ防止機能搭載 . | 使用するバッテリーとの相性によっては効果がない場合があります | . | . ",
+    "url": "https://sekigon-gonnoc.github.io/Keyboard-Quantizer-B-Build-Guide/#%E7%89%B9%E5%BE%B4",
+    "relUrl": "/#特徴"
+  },"3": {
+    "doc": "About",
+    "title": "仕組みの説明",
+    "content": "簡単な仕組みとしては、1. USBホスト用のマイコンがUSB機器と通信し、2. 受け取ったレポートをボード上のQMK用マイコンに送信、3. QMK用マイコンはレポートから押されたキーを判定してQMK上の処理をする、という流れになっています。 . そのためFnキーなどのレポートとしては送信されないキーには反応できません。Fnキーと他のキーの組み合わせにより入力されるキー/音量調整などの入力は受け取ることができます。 . NKROやポインティングデバイス付きのキーボードについては認識できる場合とできない場合があります。 一般的なプロトコル（モディファイア + 予約 (1byte) + 6キー分のデータを送信する）のキーボードやマウス（8ボタンまで、スクロール、パン）であれば安定して認識できます。 . 既存のファームウェアで認識できないデバイスについてはファームウェアを改造して頂く必要があります。 . ",
+    "url": "https://sekigon-gonnoc.github.io/Keyboard-Quantizer-B-Build-Guide/#%E4%BB%95%E7%B5%84%E3%81%BF%E3%81%AE%E8%AA%AC%E6%98%8E",
+    "relUrl": "/#仕組みの説明"
+  },"4": {
+    "doc": "About",
+    "title": "有線版 Keyboard Quantizer との比較",
+    "content": "|   | 有線版 | Keyboard Quantizer B | . | 主マイコン | Atmega32U4 | nrf52840 | . | ROM サイズ | 32KB | 1MB | . | 最大レイヤ数 | 6 | 10 | . | 接続方式 | 有線 | 有線または無線 | . | キー送信間隔 | 8ms | 8ms（有線）/ 8ms（無線） | . | マウス送信間隔 | 1ms | 1ms / 8ms（無線） | . | QMK | 公式のブランチに準拠 | nrf52 用フォークを利用 | . | そのほか、USBハブ(内蔵デバイス)との相性問題が改善されています。 | サブのマイコンには同じ CH559を使用していますが、ファームウェアは異なります。 | . 有線版の情報 . ",
+    "url": "https://sekigon-gonnoc.github.io/Keyboard-Quantizer-B-Build-Guide/#%E6%9C%89%E7%B7%9A%E7%89%88-keyboard-quantizer-%E3%81%A8%E3%81%AE%E6%AF%94%E8%BC%83",
+    "relUrl": "/#有線版-keyboard-quantizer-との比較"
+  },"5": {
+    "doc": "About",
+    "title": "About",
+    "content": " ",
+    "url": "https://sekigon-gonnoc.github.io/Keyboard-Quantizer-B-Build-Guide/",
+    "relUrl": "/"
+  },"6": {
+    "doc": "Setup",
+    "title": "Setup",
+    "content": ". | ファームウェアのビルド | ファームウェアの書き込み | バージョンの確認 | キーマップの変更と動作確認 | HID デバイスの解析方式の変更 | マウスのジェスチャ機能のしきい値変更 | ペアリングの設定 | 起動時の自動アドバタイズ(ペアリング)設定 | モバイルバッテリーで運用したい場合 . | オートパワーオフ防止機能の設定 | シャットダウン時間の設定 | . | . Google Chrome または Chromium Edge のみ対応しています。他のブラウザを使用している場合はこのページをどちらかのブラウザで開き直してください。 . ",
+    "url": "https://sekigon-gonnoc.github.io/Keyboard-Quantizer-B-Build-Guide/setup/",
+    "relUrl": "/setup/"
+  },"7": {
+    "doc": "Setup",
+    "title": "ファームウェアのビルド",
+    "content": "Keyboard Quantizer B を動作させるためには、専用のQMKファームウェアをビルドして書き込む必要があります。 以下の手順ではサンプルプログラムをGitHub上でビルドします。 . | リポジトリをGitHub上でフォークします | 必要に応じてキーマップやパーサを編集します（vialで後から変更することもできます） | ファイルを編集してコミットした場合はGitHub Actionsにより自動的にビルドが始まります。そうでない場合はGitHubのリポジトリのActions-&gt;Build Firmware-&gt;Run workflowで手動実行してください。 | GitHub Actionsでのビルドが完了したら、GitHubのリポジトリからファームウェアのzipファイルをダウンロードしてください | . ビルドの仕組みはZMKと似ているので、上記の説明が分からない場合はZMKファームウェアのビルド方法で検索してみてください。（ZMKと違いkeymap-editorでは編集できません） . ",
+    "url": "https://sekigon-gonnoc.github.io/Keyboard-Quantizer-B-Build-Guide/setup/#%E3%83%95%E3%82%A1%E3%83%BC%E3%83%A0%E3%82%A6%E3%82%A7%E3%82%A2%E3%81%AE%E3%83%93%E3%83%AB%E3%83%89",
+    "relUrl": "/setup/#ファームウェアのビルド"
+  },"8": {
+    "doc": "Setup",
+    "title": "ファームウェアの書き込み",
+    "content": ". | Quantizer をパソコンに差し込む . | B2の場合はQuantizerのUSB-C側ポートとPCを接続してください | . | Update Applicationボタンをクリックし、ビルドしたファームウェアのzipファイルを選択してください | ブラウザのポップアップが表示されたら(BMP)Keyboard QuantizerまたはnRF52 SDFU USBを選択して接続ボタンをクリック . | (BMP)Keyboard Quantizerをクリックした場合はボタンの下の表示がBootloader is activated. Click update button againになっています。もう一度Update Applicationボタンをクリックして同じ手順を実行してください。 | . | アップデートが開始されるとボタンの下に進捗が表示されます。完了を待ってください . | アップデート中にパソコンから取り外さないでください | . | . ",
+    "url": "https://sekigon-gonnoc.github.io/Keyboard-Quantizer-B-Build-Guide/setup/#%E3%83%95%E3%82%A1%E3%83%BC%E3%83%A0%E3%82%A6%E3%82%A7%E3%82%A2%E3%81%AE%E6%9B%B8%E3%81%8D%E8%BE%BC%E3%81%BF",
+    "relUrl": "/setup/#ファームウェアの書き込み"
+  },"9": {
+    "doc": "Setup",
+    "title": "バージョンの確認",
+    "content": "現在書き込まれているファームウェアのバージョンが確認できます . ",
+    "url": "https://sekigon-gonnoc.github.io/Keyboard-Quantizer-B-Build-Guide/setup/#%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3%E3%81%AE%E7%A2%BA%E8%AA%8D",
+    "relUrl": "/setup/#バージョンの確認"
+  },"10": {
+    "doc": "Setup",
+    "title": "キーマップの変更と動作確認",
+    "content": ". | ファームウェアを書き込んだら Quantizer を PC に差し込み直し、USB キーボードを接続する | Remap または Vial にアクセスし、設定を変更する . | 一度Vialに接続した場合、電源を入れ直すまでRemapでは編集できなくなります | . | キーボードでキーを押すと設定どおりに入力されることを確認する . | キーを押してもなにも入力されない場合は解析方式の変更を試す | . | . キーマップ変更の詳細 . QMKのTAPPING_TERMはVialで変更できます。 . Keyboard Quantizer B2の場合、ALLレイアウトの最初の3つのキーが本体のボタンに対応します。 . ",
+    "url": "https://sekigon-gonnoc.github.io/Keyboard-Quantizer-B-Build-Guide/setup/#%E3%82%AD%E3%83%BC%E3%83%9E%E3%83%83%E3%83%97%E3%81%AE%E5%A4%89%E6%9B%B4%E3%81%A8%E5%8B%95%E4%BD%9C%E7%A2%BA%E8%AA%8D",
+    "relUrl": "/setup/#キーマップの変更と動作確認"
+  },"11": {
+    "doc": "Setup",
+    "title": "HID デバイスの解析方式の変更",
+    "content": "Quantizerが接続されたHIDデバイス（キーボードやマウスなど）を認識する方法はデフォルトで2種類あります。 . | 解析方法 | 説明 | . | Default | HIDレポートディスクリプタを簡易パーサを使って解析します。マウスや6KRO以外のキーボードを読み取れますが、解析に失敗する場合もあります。 | . | Fixed | 接続されたデバイスが6KROキーボードであると決め打ちして読み取ります。マウスには対応していません | . 下にあるフォームで現在の設定を取得、変更できます。 . デフォルトで設定可能なパーサで認識できない場合は自分で実装する必要があります。また、ハードウェアの相性によってはソフトウェアで解決できない可能性もあります。 . | Getボタンをクリックして現在の設定を取得 . | ポップアップが表示された場合は(BMP)Keyboard Quantizerを選択 | . | ラジオボタンをクリックして設定を変更 | Setボタンをクリックして設定を保存 | 抜き差しして再起動 | . お時間がありましたら対応状況調査用のフォームへの回答をお願いいたします。 . ",
+    "url": "https://sekigon-gonnoc.github.io/Keyboard-Quantizer-B-Build-Guide/setup/#hid-%E3%83%87%E3%83%90%E3%82%A4%E3%82%B9%E3%81%AE%E8%A7%A3%E6%9E%90%E6%96%B9%E5%BC%8F%E3%81%AE%E5%A4%89%E6%9B%B4",
+    "relUrl": "/setup/#hid-デバイスの解析方式の変更"
+  },"12": {
+    "doc": "Setup",
+    "title": "マウスのジェスチャ機能のしきい値変更",
+    "content": "マウスを接続した場合はジェスチャ機能が利用できます。以下のフォームでジェスチャとして認識される最小の移動量を設定できます。 . ",
+    "url": "https://sekigon-gonnoc.github.io/Keyboard-Quantizer-B-Build-Guide/setup/#%E3%83%9E%E3%82%A6%E3%82%B9%E3%81%AE%E3%82%B8%E3%82%A7%E3%82%B9%E3%83%81%E3%83%A3%E6%A9%9F%E8%83%BD%E3%81%AE%E3%81%97%E3%81%8D%E3%81%84%E5%80%A4%E5%A4%89%E6%9B%B4",
+    "relUrl": "/setup/#マウスのジェスチャ機能のしきい値変更"
+  },"13": {
+    "doc": "Setup",
+    "title": "ペアリングの設定",
+    "content": "Quantizerは8台までのデバイスとペアリングできます。ペアリングを追加/削除したい場合は以下のフォームを使用してください。 . 実運用時には無線接続関連のキー設定をしておく必要があります。 . | 新しいデバイスとペアリングする . | すでに他のデバイスとペアリングしている場合はそのデバイスのBluetoothを無効にする | Pairingボタンをクリックする | ペアリングしたいデバイスでペアリング操作する | . | ペアリングを削除する . | Updateボタンをクリックしてペアリング済みデバイスの一覧を表示 | 削除したいデバイスのとなりにあるDeleteボタンをクリック | Updateボタンをクリックしてペアリングが削除されていることを確認 | . | . ",
+    "url": "https://sekigon-gonnoc.github.io/Keyboard-Quantizer-B-Build-Guide/setup/#%E3%83%9A%E3%82%A2%E3%83%AA%E3%83%B3%E3%82%B0%E3%81%AE%E8%A8%AD%E5%AE%9A",
+    "relUrl": "/setup/#ペアリングの設定"
+  },"14": {
+    "doc": "Setup",
+    "title": "起動時の自動アドバタイズ(ペアリング)設定",
+    "content": "Quantizerの電源をONしたときに自動でアドバタイズを開始するかどうか設定できます。 . 有線接続中心に運用する場合は意図せず他のデバイスに繋がらないよう無効に、無線接続中心に運用する場合は有効にすることをおすすめします。 . 自動アドバタイズを無効にしている場合に無線接続したいときは起動後、AD_WO_Lなどのキーを押す必要があります。 . ",
+    "url": "https://sekigon-gonnoc.github.io/Keyboard-Quantizer-B-Build-Guide/setup/#%E8%B5%B7%E5%8B%95%E6%99%82%E3%81%AE%E8%87%AA%E5%8B%95%E3%82%A2%E3%83%89%E3%83%90%E3%82%BF%E3%82%A4%E3%82%BA%E3%83%9A%E3%82%A2%E3%83%AA%E3%83%B3%E3%82%B0%E8%A8%AD%E5%AE%9A",
+    "relUrl": "/setup/#起動時の自動アドバタイズペアリング設定"
+  },"15": {
+    "doc": "Setup",
+    "title": "モバイルバッテリーで運用したい場合",
+    "content": "オートパワーオフ防止機能の設定 . モバイルバッテリーには消費電流が小さすぎる場合に自動でパワーオフする機能がついています。 . これを防止するために一定間隔で 100mA くらいの負荷電流を流すように設定できます。 USB給電中かつ通信が確立していないときのみ有効になるので、モバイルバッテリーなどに接続時は有効に、PCに接続して通信が確立しているときには無効になります。 . モバイルバッテリーは小電流での長時間運用を想定して設計されていないので、しばらく試して問題がないことを確認してから、自己責任において運用してください。 . 電流を流す間隔は 255 秒, 時間は 50%（間隔に対する比率）まで設定できます。消費電力を減らすために duty 比はなるべく小さくすることをおすすめします。設定例: 10 秒 1% . 機能を無効にする場合は間隔を 0 秒に設定してください。 . | Getボタンをクリックして現在の設定を取得 | 設定を編集 | Setボタンをクリックして設定を保存 | . シャットダウン時間の設定 . モバイルバッテリーで運用している際、一定時間入力がない場合にQuantizerをシャットダウンできます。 . 接続しているキーボードの電力が十分に小さければモバイルバッテリーのオートパワーオフによって全体の電源もオフになります。 . 復帰させるにはモバイルバッテリーの電源を入れ直してください。 . 0に設定すると機能を無効化できます。 . ",
+    "url": "https://sekigon-gonnoc.github.io/Keyboard-Quantizer-B-Build-Guide/setup/#%E3%83%A2%E3%83%90%E3%82%A4%E3%83%AB%E3%83%90%E3%83%83%E3%83%86%E3%83%AA%E3%83%BC%E3%81%A7%E9%81%8B%E7%94%A8%E3%81%97%E3%81%9F%E3%81%84%E5%A0%B4%E5%90%88",
+    "relUrl": "/setup/#モバイルバッテリーで運用したい場合"
+  },"16": {
+    "doc": "Edit Keymap",
+    "title": "キーマップの変更",
+    "content": ". | レイアウトの選択 | Quantizer独自のキー設定 | マウスの認識 . | 簡易ジェスチャ機能 | 補足 | . | . キーマップの変更にはRemap または Vial を使用します。 . Remap Vial . ",
+    "url": "https://sekigon-gonnoc.github.io/Keyboard-Quantizer-B-Build-Guide/keymap/#%E3%82%AD%E3%83%BC%E3%83%9E%E3%83%83%E3%83%97%E3%81%AE%E5%A4%89%E6%9B%B4",
+    "relUrl": "/keymap/#キーマップの変更"
+  },"17": {
+    "doc": "Edit Keymap",
+    "title": "レイアウトの選択",
+    "content": "Quantizerで認識できる変換元のキーは174種類ありますが、一般的なキーボード上に配置されているキーはそのうちの110キー程度です。 . 余計なキーまで表示されるとキーマップ変更時にわかりずらくなるので、書き換え対象のキーだけを表示できるように4種類のレイアウトを用意してあります。 . 変換したいキーが見当たらない場合はレイアウトを変更してください。たとえばMac用キーボードの変換、無変換キーはALLレイアウトにしか配置されていません。ALLレイアウトを選択してKC_LANG1, KC_LANG2の位置にあるキーを変更することで割り当てを変えられます。 また、Keyboard Quantizer B2の本体のボタンは、ALLレイアウトの最初の3つのキーに対応します。 . | レイアウト | 説明 | . | JIS | 一般的な日本語キーボードに近い配置 | . | US | 一般的な英語キーボードに近い配置 | . | MOUSE | マウス用の設定だけを抽出したもの。8個のボタンと4個のジェスチャー | . | ALL | 変換可能なすべてのキーを設定できる。一番下の列はマウス用の設定 | . ",
+    "url": "https://sekigon-gonnoc.github.io/Keyboard-Quantizer-B-Build-Guide/keymap/#%E3%83%AC%E3%82%A4%E3%82%A2%E3%82%A6%E3%83%88%E3%81%AE%E9%81%B8%E6%8A%9E",
+    "relUrl": "/keymap/#レイアウトの選択"
+  },"18": {
+    "doc": "Edit Keymap",
+    "title": "Quantizer独自のキー設定",
+    "content": "無線接続を制御するためのキーなどはRemapのBMPタブまたはVialのUSERタブから設定できます。 . キーボード単体で無線接続先を追加する、接続先を切り替える、有線/無線を切り替える場合に必要です。 . ペアリング状況の確認 . | キー | 説明 | . | AD_WO_L | 新しいデバイスを追加する際やペアリング済みのデバイスのいずれかと接続する際に使う | . | ADV ID[0..7] | ペアリング済みのデバイスのIDを指定して接続を試みる。接続先を切り替えるときに使う | . | SEL BLE | 無線接続経由の入力に切り替える | . | SEL USB | 有線接続経由の入力に切り替える | . | JU OVR | 日本語キーボードを英語OSで動作させるためのオーバーライドを設定する | . | UJ OVR | 英語キーボードを日本語OSで動作させるためのオーバーライドを設定する | . | D OVR | 上記オーバーライドを無効にする | . ",
+    "url": "https://sekigon-gonnoc.github.io/Keyboard-Quantizer-B-Build-Guide/keymap/#quantizer%E7%8B%AC%E8%87%AA%E3%81%AE%E3%82%AD%E3%83%BC%E8%A8%AD%E5%AE%9A",
+    "relUrl": "/keymap/#quantizer独自のキー設定"
+  },"19": {
+    "doc": "Edit Keymap",
+    "title": "マウスの認識",
+    "content": "マウスを接続した場合ボタンの機能の置き換えのほか、簡易的なジェスチャ機能を設定できます。 たとえばボタン4(戻る)のHOLDにLayer 1, TAPにKC_BTN4を設定すると、単押し時の機能はそのままに、長押し中は他のボタンの機能を切り替えられるようになります。 . レイアウトをMOUSEまたはALLにすると設定できます。 . 簡易ジェスチャ機能 . LTまたはMOを押した状態でカーソルを左上、右上、左下、右下に移動してからレイヤ0に戻ったときの任意の動作を設定できます。 . Remapで表示したとき、一番上の列は左から順にボタン1から8に対応し、下のブロックはそれぞれの方向に動かしたときのジェスチャ設定です。 . ジェスチャはLT, MOの移動先のレイヤに設定してください(例: レイヤ1でカーソルを動かしてから元のレイヤに戻ったときに動作させる機能はレイヤ1に設定する)。 . 補足 . ジェスチャ認識はLTまたはMOを押した時点から始まります。LTの場合でもTappingTermの経過を待つ必要はありません . ",
+    "url": "https://sekigon-gonnoc.github.io/Keyboard-Quantizer-B-Build-Guide/keymap/#%E3%83%9E%E3%82%A6%E3%82%B9%E3%81%AE%E8%AA%8D%E8%AD%98",
+    "relUrl": "/keymap/#マウスの認識"
+  },"20": {
+    "doc": "Edit Keymap",
+    "title": "Edit Keymap",
+    "content": " ",
+    "url": "https://sekigon-gonnoc.github.io/Keyboard-Quantizer-B-Build-Guide/keymap/",
+    "relUrl": "/keymap/"
+  },"21": {
+    "doc": "Tips",
+    "title": "Tips",
+    "content": ". | LED表示の意味 | 自作キーボードを無線化する . | 無線関連の制御キーの割り当て | モバイルバッテリーを長持ちさせるには . | LEDをつけない | 適度にマイコンをスリープさせる | . | . | . ",
+    "url": "https://sekigon-gonnoc.github.io/Keyboard-Quantizer-B-Build-Guide/tips",
+    "relUrl": "/tips"
+  },"22": {
+    "doc": "Tips",
+    "title": "LED表示の意味",
+    "content": "USBのオス側を下にした状態で左側のLEDがLED1、右側がLED2です。 . | 状態 | パターン | . | 起動 | LED2が3回点滅 | . | 接続先を探索中 | LED2が5秒間隔で点滅 | . | 接続完了 | LED2が長めに1回点灯 | . | キー入力などのイベント | LED1が点滅 | . ",
+    "url": "https://sekigon-gonnoc.github.io/Keyboard-Quantizer-B-Build-Guide/tips#led%E8%A1%A8%E7%A4%BA%E3%81%AE%E6%84%8F%E5%91%B3",
+    "relUrl": "/tips#led表示の意味"
+  },"23": {
+    "doc": "Tips",
+    "title": "自作キーボードを無線化する",
+    "content": "無線関連の制御キーの割り当て . 自作キーボードを無線化する目的でQuantizer Bを使用する場合は、キーマップのカスタマイズは基本的に自作キーボード側で実現することをお勧めします。 . そして、F13以降やLang5以降など使用頻度の低いキーを自作キーボードに割り当ててQuantizerで無線関連のキーに置き換えることで、Quantizerを介さずに有線接続したときの利便性を損なうことなく無線化を実現できます。 . モバイルバッテリーを長持ちさせるには . モバイルバッテリーを長持ちさせるにはキーボード本体の消費電流を減らす必要があります。 市販のキーボードはどうすることもできませんが、自作キーボードであれば部品やファームウェアの工夫によって消費電流を減らすことができます。 . LEDをつけない . LEDを点灯させると（Quantizerに比べて）大量の電流が流れます。 自作キーボードでよく使われるシリアルタイプのLED（sk6812miniなど）は点灯させていなくても常時1mA/1個くらい流れ続けてしまいます。 . したがって、そもそもシリアルLEDをはんだ付けしないか、FETで単色LEDを制御するタイプの構成をおすすめします。 . 適度にマイコンをスリープさせる . ATmega32U4（pro microなど）の上でQMKを動かすと、数kHzでマトリクスをスキャンします（左右通信、OLEDなどを有効にすると遅くなります）。 . QMKのデフォルト設定ではキーレポートのポーリングレートは（125Hz）なので、数kHzのスキャンレートは明らかに過剰性能です。 . 例えばmatrix_scan_userに下記のコードを追加することで、スキャンレートを落とし、余った時間はマイコンを省電力モードにできます。 . #include \"timer.h\" #include &lt;avr/sleep.h&gt; #define SCAN_PERIOD_MS 2 void matrix_scan_user(void) { // 現在の時間を取得 volatile uint16_t t = timer_read(); // スリープモードを有効にする set_sleep_mode(0); sleep_enable(); sei(); // 一定時間が経過するまでCPUをスリープさせる do { // 割り込みが発生するまでスリープする sleep_cpu(); // 指定時間経過していなかったらもう一度スリープする } while (timer_elapsed(t) &lt; SCAN_PERIOD_MS); // スリープモードを無効にする sleep_disable(); } . ",
+    "url": "https://sekigon-gonnoc.github.io/Keyboard-Quantizer-B-Build-Guide/tips#%E8%87%AA%E4%BD%9C%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%89%E3%82%92%E7%84%A1%E7%B7%9A%E5%8C%96%E3%81%99%E3%82%8B",
+    "relUrl": "/tips#自作キーボードを無線化する"
+  },"24": {
+    "doc": "CLI",
+    "title": "CLI",
+    "content": "Quantizerにコマンドを送信したり、QMKのデバッグ出力を確認したりできます。 . | 送信したいコマンドを入力してEnterまたはSendボタンをクリック . | ポップアップが表示された場合はQuantizerを選択 | . | . ",
+    "url": "https://sekigon-gonnoc.github.io/Keyboard-Quantizer-B-Build-Guide/cli/",
+    "relUrl": "/cli/"
+  },"25": {
+    "doc": "CLI",
+    "title": "コマンド一覧",
+    "content": "| コマンド | 説明 | . | help | 使用できるコマンド一覧を表示 | . | debug on | デバッグ出力を有効化 | . | debug off | デバッグ出力を無効化 | . | dfu | ブートローダを起動 | . | ee save | QMKでEEPROM上に書き込まれる設定(AG_SWAPなど)を永続化 | . ",
+    "url": "https://sekigon-gonnoc.github.io/Keyboard-Quantizer-B-Build-Guide/cli/#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E4%B8%80%E8%A6%A7",
+    "relUrl": "/cli/#コマンド一覧"
+  },"26": {
+    "doc": "Build Firmware",
+    "title": "ファームウェアのビルドと書き込み",
+    "content": "ベースはQMKファームウェアです。QMK自体の使い方については公式ドキュメントを参照してください。最新のQMKと乖離している場合があるため、Quantizer用リポジトリのdoc/フォルダ以下も参照することをおすすめします。 . | 環境構築(ローカル) | 編集する | ビルドする . | uf2ファイルを生成する | nrfutilで書き込む | . | 自分でレポートパーサを実装する . | サンプル | 編集するファイルと関数 | keymap.c | レポートの形式を調べる | . | . ",
+    "url": "https://sekigon-gonnoc.github.io/Keyboard-Quantizer-B-Build-Guide/build_firmware/#%E3%83%95%E3%82%A1%E3%83%BC%E3%83%A0%E3%82%A6%E3%82%A7%E3%82%A2%E3%81%AE%E3%83%93%E3%83%AB%E3%83%89%E3%81%A8%E6%9B%B8%E3%81%8D%E8%BE%BC%E3%81%BF",
+    "relUrl": "/build_firmware/#ファームウェアのビルドと書き込み"
+  },"27": {
+    "doc": "Build Firmware",
+    "title": "環境構築(ローカル)",
+    "content": "QMKの導入手順にしたがって必要ソフトをインストールしてください。 Pro Microを使う場合とは異なり、arm-none-eabi-gccとその関連ソフトも必須です。 . ツールのバージョンによって上手く動作しない場合があるので、基本的にはGitHub Actionsでのビルドか、同等の環境をDockerで用意してビルドすることを推奨します。 . | BLE Micro Pro用のQMK Firmwareをqmk_firmware_bmp_vialという名前でclone git clone --depth 1 -b keyboard-quantizer-b https://github.com/sekigon-gonnoc/vial-qmk.git qmk_firmware_bmp_vial . | ビルドに必要なツールをインストール cd qmk_firmware_bmp ./util/qmk_install.sh . | uf2ブートローダを使わない場合、nrfutil もインストール(要Python3.6–3.8) pip install nrfutil --user . | . ",
+    "url": "https://sekigon-gonnoc.github.io/Keyboard-Quantizer-B-Build-Guide/build_firmware/#%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB",
+    "relUrl": "/build_firmware/#環境構築ローカル"
+  },"28": {
+    "doc": "Build Firmware",
+    "title": "編集する",
+    "content": "ファームウェアを編集する場合、keyboards/sekigon/quantizer/kqb/ 以下を編集してください . ",
+    "url": "https://sekigon-gonnoc.github.io/Keyboard-Quantizer-B-Build-Guide/build_firmware/#%E7%B7%A8%E9%9B%86%E3%81%99%E3%82%8B",
+    "relUrl": "/build_firmware/#編集する"
+  },"29": {
+    "doc": "Build Firmware",
+    "title": "ビルドする",
+    "content": "uf2ファイルを生成する . 事前にUF2ブートローダを書き込んでいないとこの方法は使えません . uf2ブートローダの書き込み . uf2ブートローダが起動するとQuantizerがマスストレージとして認識されます。uf2ファイルをこのドライブにコピーすることでファームウェアを更新できます。 . 以下のコマンドでuf2ファイルが生成されます。 . make sekigon/keyboard_quantizer/kqb:default:uf2 . CLIからdfuコマンドでブートローダを起動し、KQB_BOOTという名前のドライブが表示されたらuf2ファイルをコピーしてください。 . nrfutilで書き込む . 以下のコマンドでnrfutil用のzipファイルを生成し、書き込み待機状態になったらQuantizerをPCに接続してください。 . make &lt;keyboard&gt;:&lt;keymap&gt;:nrfutil . ",
+    "url": "https://sekigon-gonnoc.github.io/Keyboard-Quantizer-B-Build-Guide/build_firmware/#%E3%83%93%E3%83%AB%E3%83%89%E3%81%99%E3%82%8B",
+    "relUrl": "/build_firmware/#ビルドする"
+  },"30": {
+    "doc": "Build Firmware",
+    "title": "自分でレポートパーサを実装する",
+    "content": "サンプル . | Thinkpad trackpoint keyboard専用のパーサを実装したサンプル | . 編集するファイルと関数 . | 自分で用意したパーサを使用するにはkeymap.cへの関数の実装が必要です | . keymap.c . | void report_descriptor_parser_user(uint8_t interface, uint8_t const* desc, uint16_t len) . | 受信したレポートディスクリプタを解析する | サンプルでは特定のキーボードの種類を想定しているのでレポートディスクリプタは解析不要のため、空の関数 | . | void on_disconnect_device_user(uint8_t device) . | Quantizerからデバイスを抜いたときに実行する関数 | サンプルではキーが押しっぱなしにならないように受信したデータをクリアしている | . | bool report_parser_user(uint8_t const* buf, uint16_t len, matrix_row_t* current_matrix) . | 受信したレポートを解析しキーマトリクスを更新する。戻り値はマトリクスの更新の有無 | サンプルではVID:PIDがトラックポイントキーボードと一致した場合は専用の関数を、それ以外では6KROキーボード用の関数を呼び出している | . | . レポートの形式を調べる . CLIのデバッグ機能を使ってどんなレポートが送られてくるか調べられます。CLIからQuantizerに接続したらdebug onを送信し、Quantizerに接続したキーボードやマウスを動かしてください。ホストICがデバイスを認識できていれば下記のようなメッセージが表示されます。 . | キーを押したりマウスを操作したときのレポートを確認 . | 先頭10バイトはホストICが付加したヘッダ | サンプルの場合以下の三種類 | . # Aキーを押したとき Receive: device:0, ep:1 08 00 04 06 00 01 EF 17 47 60 00 00 04 00 00 00 00 00 #&lt;------ header -----&gt;|&lt;-------report--------&gt; # カーソルを動かしたとき Receive: device:1, ep:2 06 00 04 02 01 02 EF 17 47 60 01 00 00 02 00 00 #&lt;------ header -----&gt;|&lt;----report-----&gt; # 横スクロールしたとき Receive: device:1, ep:2 03 00 04 02 01 02 EF 17 47 60 16 FF 00 #&lt;------ header -----&gt;|&lt;report&gt; . | device0はキーボード | device1のID0はマウス(横スクロールは除く、xyは8bit)、ID0x16は横スクロール | . | . ",
+    "url": "https://sekigon-gonnoc.github.io/Keyboard-Quantizer-B-Build-Guide/build_firmware/#%E8%87%AA%E5%88%86%E3%81%A7%E3%83%AC%E3%83%9D%E3%83%BC%E3%83%88%E3%83%91%E3%83%BC%E3%82%B5%E3%82%92%E5%AE%9F%E8%A3%85%E3%81%99%E3%82%8B",
+    "relUrl": "/build_firmware/#自分でレポートパーサを実装する"
+  },"31": {
+    "doc": "Build Firmware",
+    "title": "Build Firmware",
+    "content": " ",
+    "url": "https://sekigon-gonnoc.github.io/Keyboard-Quantizer-B-Build-Guide/build_firmware/",
+    "relUrl": "/build_firmware/"
+  },"32": {
+    "doc": "FAQ",
+    "title": "FAQ",
+    "content": ". | ペアリング台数は何台ですか(マルチペアリングに対応していますか) | 30秒くらい入力しないとそれ以降入力できなくなります | 以前接続できていたデバイスと接続できなくなりました | . ",
+    "url": "https://sekigon-gonnoc.github.io/Keyboard-Quantizer-B-Build-Guide/faq/",
+    "relUrl": "/faq/"
+  },"33": {
+    "doc": "FAQ",
+    "title": "ペアリング台数は何台ですか(マルチペアリングに対応していますか)",
+    "content": "8台まで接続できます。 . ",
+    "url": "https://sekigon-gonnoc.github.io/Keyboard-Quantizer-B-Build-Guide/faq/#%E3%83%9A%E3%82%A2%E3%83%AA%E3%83%B3%E3%82%B0%E5%8F%B0%E6%95%B0%E3%81%AF%E4%BD%95%E5%8F%B0%E3%81%A7%E3%81%99%E3%81%8B%E3%83%9E%E3%83%AB%E3%83%81%E3%83%9A%E3%82%A2%E3%83%AA%E3%83%B3%E3%82%B0%E3%81%AB%E5%AF%BE%E5%BF%9C%E3%81%97%E3%81%A6%E3%81%84%E3%81%BE%E3%81%99%E3%81%8B",
+    "relUrl": "/faq/#ペアリング台数は何台ですかマルチペアリングに対応していますか"
+  },"34": {
+    "doc": "FAQ",
+    "title": "30秒くらい入力しないとそれ以降入力できなくなります",
+    "content": "他のデバイス(OS)でも再現しますか？ 再現しない場合はOSの省電力設定を見直してください。 . ",
+    "url": "https://sekigon-gonnoc.github.io/Keyboard-Quantizer-B-Build-Guide/faq/#30%E7%A7%92%E3%81%8F%E3%82%89%E3%81%84%E5%85%A5%E5%8A%9B%E3%81%97%E3%81%AA%E3%81%84%E3%81%A8%E3%81%9D%E3%82%8C%E4%BB%A5%E9%99%8D%E5%85%A5%E5%8A%9B%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%8F%E3%81%AA%E3%82%8A%E3%81%BE%E3%81%99",
+    "relUrl": "/faq/#30秒くらい入力しないとそれ以降入力できなくなります"
+  },"35": {
+    "doc": "FAQ",
+    "title": "以前接続できていたデバイスと接続できなくなりました",
+    "content": "PC等の側から一度ペアリングを解除し、もう一度ペアリングしてください。 . それでもうまく行かない場合は、PCとQuantizerの両方からペアリング情報を削除してから再接続してください。Quantizerからペアリング情報を削除するにはカスタムキーコードのDEL_xxを使うか、CLIからdelコマンドを発行します。 . ",
+    "url": "https://sekigon-gonnoc.github.io/Keyboard-Quantizer-B-Build-Guide/faq/#%E4%BB%A5%E5%89%8D%E6%8E%A5%E7%B6%9A%E3%81%A7%E3%81%8D%E3%81%A6%E3%81%84%E3%81%9F%E3%83%87%E3%83%90%E3%82%A4%E3%82%B9%E3%81%A8%E6%8E%A5%E7%B6%9A%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%8F%E3%81%AA%E3%82%8A%E3%81%BE%E3%81%97%E3%81%9F",
+    "relUrl": "/faq/#以前接続できていたデバイスと接続できなくなりました"
+  }
+}

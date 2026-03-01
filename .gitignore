@@ -1,0 +1,6 @@
+assets/img/raw
+package.json
+*.map
+*.crt
+*.key
+*.lock
